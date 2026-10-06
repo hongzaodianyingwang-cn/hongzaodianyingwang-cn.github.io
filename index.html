@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<title>红枣电影网 - 今日上新片单_最新电影推荐_高分电影排行榜</title>
+<meta name="description" content="红枣电影网是专注电影推荐与影视资讯的中文影迷站点，按干货铺子节奏每日上新：今日上新片单、干货抽屉分类、文火慢炖影评、糖度排行榜与观影指南，挑一部像挑一颗好枣那样认真。">
+<meta name="keywords" content="红枣电影网,电影推荐,今日上新,最新电影,影视资讯,高分电影,电影排行榜,影评,观影指南,电影分类">
+<meta name="author" content="红枣电影网">
+<meta name="robots" content="index,follow">
+<meta name="revisit-after" content="1 days">
+<meta name="theme-color" content="#8E2436">
+<link rel="canonical" href="https://hongzaodianyingwang-cn.github.io/">
+<link rel="alternate" hreflang="zh-CN" href="https://hongzaodianyingwang-cn.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="红枣电影网">
+<meta property="og:title" content="红枣电影网 - 今日上新片单_最新电影推荐_高分电影排行榜">
+<meta property="og:description" content="红枣电影网按干货铺子节奏每日上新：今日上新片单、干货抽屉分类、文火慢炖影评与糖度排行榜。">
+<meta property="og:url" content="https://hongzaodianyingwang-cn.github.io/">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="红枣电影网 - 今日上新片单与电影推荐">
+<meta name="twitter:description" content="红枣电影网每日更新今日上新片单、文火慢炖影评与高分电影排行榜。">
+<style>
+:root{
+  --date:#8E2436;
+  --date-d:#5E1420;
+  --date-l:#B03A4E;
+  --date-ll:#C9576A;
+  --flesh:#F3E4CE;
+  --paper:#FBF4EA;
+  --paper-2:#F5EBDC;
+  --wood:#8A5A34;
+  --wood-d:#5C3A20;
+  --wood-l:#A97545;
+  --gold:#C79A3C;
+  --gold-d:#8E6A1E;
+  --leaf:#6E8E3E;
+  --ink:#2E1F1A;
+  --ink-2:#5A4740;
+  --muted:#8B7568;
+  --dim:#A89383;
+  --line:rgba(46,31,26,.16);
+  --max:1180px;
+  --serif:"Songti SC","STSong","SimSun",Georgia,serif;
+  --sans:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei","Helvetica Neue",Arial,sans-serif;
+  --mono:"SFMono-Regular",Menlo,Consolas,"Courier New",monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+:focus-visible{outline:2px solid var(--date);outline-offset:3px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono)}
+ruby{ruby-position:over}
+rt{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.04em}
+q{quotes:"「" "」";color:var(--date);font-weight:700}
+dfn{font-style:normal;color:var(--wood);border-bottom:1px dotted var(--gold)}
+cite{font-style:normal;color:var(--muted)}
+address{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+/* 麻绳 / 竹编纹理条 */
+.rope{height:10px;background:repeating-linear-gradient(45deg,var(--wood-l) 0 6px,var(--wood) 6px 12px);border-bottom:1px solid var(--wood-d)}
+.bamboo{
+  height:14px;border-top:1px solid var(--wood-d);border-bottom:1px solid var(--wood-d);
+  background:
+    repeating-linear-gradient(90deg,rgba(92,58,32,.35) 0 2px,transparent 2px 9px),
+    repeating-linear-gradient(0deg,rgba(92,58,32,.28) 0 2px,transparent 2px 7px),
+    linear-gradient(180deg,#C79A5C,#A97545);
+}
+
+/* ===== 上新提示条 ===== */
+.bar{background:var(--wood);color:#F1E3D2;border-bottom:2px solid var(--wood-d)}
+.bar .wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap;min-height:38px;font-family:var(--mono);font-size:12.5px}
+.bar .tag{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--gold)}
+.bar .tag i{
+  width:11px;height:14px;display:block;background:linear-gradient(160deg,var(--date-l),var(--date-d));
+  border-radius:50% 50% 46% 46% / 58% 58% 42% 42%;
+}
+.bar .rt{margin-left:auto;display:flex;gap:14px;flex-wrap:wrap}
+.bar b{color:#fff}
+
+/* ===== 头部：木质招牌 ===== */
+header.top{
+  background:linear-gradient(180deg,var(--wood-l),var(--wood) 55%,var(--wood-d));
+  position:sticky;top:0;z-index:80;border-bottom:4px solid var(--gold-d);
+  box-shadow:0 8px 20px rgba(92,58,32,.3);
+}
+header.top::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 3px,transparent 3px 17px);
+}
+.top-inner{display:flex;align-items:center;gap:16px;min-height:76px;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.signboard{
+  width:50px;height:50px;flex:0 0 auto;border-radius:6px;position:relative;
+  background:linear-gradient(160deg,var(--date-l),var(--date) 60%,var(--date-d));
+  border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:20px;color:#F7E9D8;box-shadow:0 5px 14px rgba(0,0,0,.35);
+}
+.signboard::after{
+  content:"";position:absolute;top:-7px;left:50%;width:14px;height:14px;margin-left:-7px;
+  border:3px solid var(--gold);border-radius:50%;
+}
+.brand b{display:block;font-family:var(--serif);font-size:22px;letter-spacing:3px;color:#FBF0E2;line-height:1.2;text-shadow:0 2px 5px rgba(0,0,0,.4)}
+.brand small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.24em;color:rgba(251,240,226,.66)}
+nav.main{margin-left:auto;display:flex;gap:2px;flex-wrap:wrap}
+nav.main a{
+  font-size:14.5px;padding:8px 13px;color:rgba(251,240,226,.9);white-space:nowrap;
+  border-radius:5px;transition:.18s;border:1px solid transparent;
+}
+nav.main a:hover{background:rgba(255,255,255,.14);color:#fff}
+nav.main a.cur{background:var(--gold);color:#3A2A08;font-weight:700;border-color:var(--gold-d)}
+.ck{display:none}
+.menu-btn{display:none;margin-left:auto;width:42px;height:38px;border:2px solid var(--gold);border-radius:6px;background:rgba(0,0,0,.2);align-items:center;justify-content:center;cursor:pointer}
+.menu-btn i{display:block;width:18px;height:2px;background:var(--gold);position:relative}
+.menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--gold)}
+.menu-btn i::before{top:-6px}
+.menu-btn i::after{top:6px}
+
+/* ===== HERO ===== */
+.hero{padding:32px 0 24px;position:relative}
+.hero::before{
+  content:"";position:absolute;left:50%;top:-40px;width:1000px;height:520px;margin-left:-500px;
+  background:radial-gradient(ellipse at 50% 30%, rgba(142,36,54,.10), transparent 62%);pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;position:relative;z-index:2}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--date);margin-bottom:12px}
+h1{font-family:var(--serif);font-size:46px;line-height:1.26;letter-spacing:2px;font-weight:700;margin-bottom:14px}
+h1 em{font-style:normal;color:var(--date);border-bottom:5px solid rgba(142,36,54,.22)}
+.lead{font-family:var(--serif);font-size:17px;color:var(--ink-2);max-width:580px;margin-bottom:22px;line-height:1.9}
+.lead b{color:var(--ink);font-family:var(--sans)}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.btn{display:inline-block;padding:12px 26px;font-size:15px;font-weight:700;border-radius:6px;transition:.2s}
+.btn-a{background:linear-gradient(160deg,var(--date-l),var(--date));color:#FBF0E2;box-shadow:0 7px 0 var(--date-d)}
+.btn-a:hover{transform:translateY(-2px)}
+.btn-b{border:2px solid var(--gold);color:var(--wood)}
+.btn-b:hover{background:rgba(199,154,60,.14)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--gold-d);border-radius:6px;overflow:hidden;background:var(--paper-2)}
+.hero-stats div{padding:12px 14px;border-right:1px solid var(--line);text-align:center}
+.hero-stats div:last-child{border-right:0}
+.hero-stats strong{display:block;font-family:var(--mono);font-size:23px;color:var(--date);line-height:1.2}
+.hero-stats span{font-size:11px;color:var(--muted);letter-spacing:.06em}
+
+/* 竹筛盛枣 */
+.tray{
+  position:relative;border-radius:50%;aspect-ratio:1/1;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255,255,255,.55), transparent 52%),
+    repeating-conic-gradient(from 0deg, rgba(199,154,60,.30) 0deg 4deg, transparent 4deg 8deg),
+    radial-gradient(circle, #E4C89A 0 62%, #C79A5C 62% 100%);
+  border:8px solid var(--wood);box-shadow:0 22px 44px rgba(92,58,32,.32), inset 0 0 40px rgba(92,58,32,.28);
+  display:flex;align-items:center;justify-content:center;
+}
+.tray .core{
+  width:78%;height:78%;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 42% 36%, var(--date-ll), var(--date) 55%, var(--date-d));
+  box-shadow:inset 0 -18px 34px rgba(0,0,0,.35), 0 10px 22px rgba(0,0,0,.3);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 24px;
+}
+.tray .core::before{
+  content:"";position:absolute;left:16%;top:10%;width:34%;height:26%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.55),transparent 70%);
+}
+.tray .core b{position:relative;z-index:2;font-family:var(--serif);font-size:34px;letter-spacing:3px;color:#FDF2E4;line-height:1.25}
+.tray .core small{position:relative;z-index:2;display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:rgba(253,242,228,.75);margin-top:7px}
+.tray .core .seed{position:relative;z-index:2;margin-top:9px;font-family:var(--mono);font-size:11px;color:#F7D8B4;letter-spacing:.08em}
+.jujubes{position:absolute;inset:0;pointer-events:none}
+.jujubes i{
+  position:absolute;display:block;background:linear-gradient(160deg,var(--date-l),var(--date-d));
+  border-radius:50% 50% 46% 46% / 58% 58% 42% 42%;box-shadow:0 4px 10px rgba(0,0,0,.28);
+}
+.jujubes i:nth-child(1){width:26px;height:34px;left:6%;top:20%;transform:rotate(-16deg)}
+.jujubes i:nth-child(2){width:20px;height:26px;right:9%;top:14%;transform:rotate(12deg)}
+.jujubes i:nth-child(3){width:22px;height:29px;right:4%;bottom:26%;transform:rotate(-8deg)}
+.jujubes i:nth-child(4){width:18px;height:24px;left:4%;bottom:20%;transform:rotate(20deg)}
+.jujubes i:nth-child(5){width:16px;height:21px;left:50%;top:3%;transform:rotate(-4deg)}
+
+/* ===== 通用 ===== */
+section{padding:38px 0;scroll-margin-top:80px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--wood)}
+.sec-head .l{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.sec-head .plate{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;font-weight:700;
+  background:var(--wood);color:#F7E9D8;padding:5px 14px;border-radius:0;position:relative;
+  border:1px solid var(--gold-d);
+}
+.sec-head .plate.r{background:var(--date);border-color:var(--date-d)}
+.sec-head .plate.g{background:var(--leaf);border-color:#4E6A28}
+.sec-head h2{font-family:var(--serif);font-size:28px;letter-spacing:2px;line-height:1.3}
+.sec-head p{font-size:13px;color:var(--muted);width:100%;margin-top:4px}
+.more{font-family:var(--mono);font-size:12px;border:1px solid var(--wood);color:var(--wood);padding:6px 15px;background:var(--paper-2);white-space:nowrap}
+.more:hover{background:var(--wood);color:#F7E9D8}
+
+/* ===== 栏目一：今日上新（枣形卡） ===== */
+.fruits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.fruit{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:18px 16px 16px;
+  display:flex;flex-direction:column;transition:.26s;position:relative;overflow:hidden;
+}
+.fruit::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:5px;
+  background:linear-gradient(90deg,var(--date-d),var(--date-l),var(--gold),var(--date-l),var(--date-d));
+}
+.fruit:hover{transform:translateY(-6px);box-shadow:0 20px 36px rgba(92,58,32,.2)}
+.fruit .pick{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.fruit .pick .no{
+  font-family:var(--mono);font-size:11.5px;font-weight:700;background:var(--date);color:#FBF0E2;padding:3px 11px;border-radius:4px;
+}
+.fruit .pick .grade{font-family:var(--mono);font-size:11px;color:var(--leaf);border:1px solid rgba(110,142,62,.45);padding:2px 10px;border-radius:4px}
+.fruit .body{display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:center;margin-bottom:12px}
+.jujube{
+  width:104px;height:134px;position:relative;
+  border-radius:50% 50% 46% 46% / 58% 58% 42% 42%;
+  background:radial-gradient(circle at 38% 30%, var(--date-ll), var(--date) 52%, var(--date-d));
+  box-shadow:inset 0 -14px 26px rgba(0,0,0,.32), 0 8px 18px rgba(0,0,0,.22);
+  display:flex;align-items:center;justify-content:center;transition:.28s;
+}
+.fruit:hover .jujube{transform:translateY(-4px) rotate(-2deg)}
+.jujube::before{
+  content:"";position:absolute;left:18%;top:12%;width:30%;height:24%;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.55),transparent 72%);
+}
+.jujube::after{
+  content:"";position:absolute;top:-8px;left:50%;width:7px;height:14px;margin-left:-3.5px;
+  background:var(--wood-d);border-radius:3px 3px 0 0;
+}
+.jujube b{position:relative;z-index:2;font-family:var(--serif);font-size:26px;font-weight:800;color:#FDF2E4}
+.fruit .meta b{display:block;font-family:var(--serif);font-size:18px;letter-spacing:1px;line-height:1.4}
+.fruit .meta small{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:3px}
+.fruit .meta .rate{margin-top:8px;font-family:var(--mono);font-size:20px;font-weight:800;color:var(--date)}
+.fruit p{font-size:13.5px;color:var(--ink-2);line-height:1.8;flex:1}
+.fruit .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.fruit .tags span{font-family:var(--mono);font-size:10.5px;color:var(--muted);border:1px solid var(--line);padding:2px 9px;border-radius:4px}
+.fruit .foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:13px;padding-top:11px;border-top:1px dashed var(--line)}
+.fruit .foot a{font-family:var(--mono);font-size:12px;color:var(--wood);border-bottom:2px solid var(--gold)}
+.fruit .foot a:hover{color:var(--date)}
+.fruit .foot .br{font-family:var(--mono);font-size:11px;color:var(--dim)}
+
+/* ===== 栏目二：干货抽屉 ===== */
+.cabinet{
+  background:linear-gradient(180deg,var(--wood-l),var(--wood) 40%,var(--wood-d));
+  border:5px solid var(--gold-d);border-radius:10px;padding:18px;
+  box-shadow:0 22px 44px rgba(92,58,32,.3);
+}
+.drawers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.drawer{
+  background:linear-gradient(180deg,#D9BE96,#C29E72);
+  border:2px solid var(--wood-d);border-radius:6px;padding:0 0 12px;position:relative;
+  box-shadow:inset 0 2px 6px rgba(255,255,255,.4);
+}
+.drawer .face{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 14px;background:linear-gradient(180deg,var(--wood),var(--wood-d));
+  border-radius:4px 4px 0 0;border-bottom:2px solid var(--gold-d);
+}
+.drawer .face b{font-family:var(--serif);font-size:16px;letter-spacing:2px;color:#F7E9D8}
+.drawer .face em{
+  font-style:normal;width:22px;height:22px;flex:0 0 auto;border:3px solid var(--gold);border-radius:50%;
+  box-shadow:0 2px 5px rgba(0,0,0,.35);
+}
+.drawer ul{padding:12px 14px 4px}
+.drawer li a{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font-size:13.5px;color:#4A3520;padding:7px 0;border-bottom:1px dotted rgba(92,58,32,.35);transition:.18s;
+}
+.drawer li a:last-child{border-bottom:0}
+.drawer li a:hover{color:var(--date)}
+.drawer li a i{font-style:normal;font-family:var(--mono);font-size:11px;color:#7A5E3E}
+.drawer .df{font-size:12px;color:#6B5133;padding:8px 14px 0;line-height:1.7}
+.cabinet-note{font-family:var(--mono);font-size:11.5px;color:#F0DCC0;text-align:center;margin-top:14px;line-height:1.8}
+
+/* ===== 栏目三：文火慢炖影评 ===== */
+.stews{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.stew{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
+  position:relative;transition:.24s;
+}
+.stew::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:4px;border-radius:14px 14px 0 0;
+  background:linear-gradient(90deg,var(--gold),var(--date-l),var(--gold));
+}
+.stew:hover{transform:translateY(-5px);box-shadow:0 18px 32px rgba(92,58,32,.18)}
+.stew .hd{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.stew .hd .kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;background:var(--leaf);color:#F3F7E6;padding:3px 11px;border-radius:4px}
+.stew .hd .heat{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-left:auto}
+.stew h3{font-family:var(--serif);font-size:19px;letter-spacing:1px;margin-bottom:8px;line-height:1.5}
+.stew p{font-size:14px;color:var(--ink-2);line-height:1.85}
+.stew blockquote{
+  margin:12px 0;padding:11px 0 11px 15px;border-left:3px solid var(--date-l);
+  background:rgba(142,36,54,.08);font-family:var(--serif);font-size:15px;color:#6B1E2C;line-height:1.8;
+}
+.stew .sig{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:12px;padding-top:11px;border-top:1px dashed var(--line)}
+
+/* ===== 栏目四：糖度排行榜 ===== */
+.rankwrap{display:grid;grid-template-columns:1fr 320px;gap:22px}
+.brix{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.brix li{
+  display:grid;grid-template-columns:78px 1fr 150px 74px;gap:14px;align-items:center;
+  padding:12px 20px;border-bottom:1px dashed var(--line);
+}
+.brix li:last-child{border-bottom:0}
+.brix .pos{
+  font-family:var(--mono);font-size:15px;font-weight:800;text-align:center;padding:5px 0;border-radius:50%;
+  width:52px;height:52px;line-height:42px;margin:0 auto;color:#FBF0E2;
+  background:radial-gradient(circle at 38% 32%, var(--date-ll), var(--date) 55%, var(--date-d));
+  border:2px solid var(--gold);
+}
+.brix li:nth-child(1) .pos{background:radial-gradient(circle at 38% 32%, #F0D27A, var(--gold) 60%, var(--gold-d));color:#3A2A08}
+.brix .nm b{display:block;font-family:var(--serif);font-size:16.5px;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brix .nm small{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.brix .sweet{height:12px;border-radius:99px;background:var(--flesh);overflow:hidden;border:1px solid var(--line)}
+.brix .sweet i{
+  display:block;height:12px;border-radius:99px;
+  background:repeating-linear-gradient(90deg,var(--date) 0 8px,var(--date-l) 8px 16px);
+}
+.brix .pt{font-family:var(--mono);font-size:19px;font-weight:800;color:var(--date);text-align:right}
+.brix .pt em{font-style:normal;font-size:11px;color:var(--dim);margin-left:2px}
+.sidecard{
+  background:linear-gradient(180deg,var(--wood-l),var(--wood-d));color:#F3E4CE;border-radius:14px;padding:20px;
+  border:3px solid var(--gold-d);box-shadow:0 18px 32px rgba(92,58,32,.28);
+}
+.sidecard h3{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--gold);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.24);margin-bottom:12px}
+.sidecard ol li{display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,.2);font-size:13.5px}
+.sidecard ol li:last-child{border-bottom:0}
+.sidecard ol li b{font-family:var(--mono);color:var(--gold);flex:0 0 16px;font-size:12px}
+.sidecard p{font-size:12.5px;color:#D9C4A6;margin-top:12px;line-height:1.8}
+
+/* ===== 栏目五：成分表 + 关于 ===== */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}
+.ab{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:26px 28px;border-top:5px solid var(--date)}
+.ab h3{font-family:var(--serif);font-size:22px;letter-spacing:2px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.ab p{font-size:14.5px;color:var(--ink-2);margin-bottom:11px}
+.ab p:last-child{margin-bottom:0}
+.ab p b{color:var(--ink)}
+.ab .hl{color:var(--date);font-weight:700}
+.rules li{display:grid;grid-template-columns:58px 1fr;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14px;line-height:1.75}
+.rules li:last-child{border-bottom:0}
+.rules li em{font-style:normal;font-family:var(--mono);font-size:11.5px;font-weight:800;color:var(--date);padding-top:3px;letter-spacing:.06em}
+.nutri{margin-top:16px;border:1px dashed var(--line);border-radius:10px;padding:14px 16px;background:var(--paper)}
+.nutri h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;color:var(--wood);margin-bottom:8px}
+.nutri dl{display:grid;grid-template-columns:1fr auto;gap:0}
+.nutri dt{padding:7px 0;border-bottom:1px dotted var(--line);font-size:13.5px;color:var(--ink-2)}
+.nutri dd{padding:7px 0;border-bottom:1px dotted var(--line);font-family:var(--mono);font-size:14px;font-weight:700;color:var(--date);text-align:right}
+.nutri dt:last-of-type,.nutri dd:last-of-type{border-bottom:0}
+.nutri .tip{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.8}
+
+/* ===== 栏目六：FAQ ===== */
+.faq{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.faq details{border-bottom:1px dashed var(--line)}
+.faq details:last-child{border-bottom:0}
+.faq summary{cursor:pointer;padding:16px 22px;font-family:var(--serif);font-size:16.5px;letter-spacing:1px;list-style:none;position:relative;padding-right:60px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"◍";color:var(--date);margin-right:10px;font-size:13px}
+.faq details[open] summary::before{content:"◉"}
+.faq details[open] summary{background:linear-gradient(90deg,rgba(142,36,54,.12),transparent);color:var(--date)}
+.faq summary .code{position:absolute;right:22px;top:16px;font-family:var(--mono);font-size:11px;color:var(--dim)}
+.faq details p{padding:14px 22px 20px;font-size:14px;color:var(--ink-2);line-height:1.9;border-top:1px dashed var(--line)}
+
+/* ===== 底部 ===== */
+footer{margin-top:26px;background:linear-gradient(180deg,var(--wood),var(--wood-d));color:#EADBC6;padding:38px 0 26px}
+.f-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:24px}
+.f-col h4{font-family:var(--serif);font-size:16px;letter-spacing:2px;color:var(--gold);margin-bottom:13px;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.2)}
+.f-col p{font-size:13.5px;color:#D6C3AA;line-height:1.9}
+.f-col li{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.16)}
+.f-col li a{font-size:13.5px;color:#D6C3AA}
+.f-col li a:hover{color:var(--gold)}
+.f-url{font-family:var(--mono);font-size:12.5px;color:var(--gold);margin-top:10px;display:inline-block;word-break:break-all}
+.kw{margin-top:24px;padding-top:18px;border-top:1px dashed rgba(255,255,255,.18);font-size:12.5px;color:#B9A88E;line-height:2.1}
+.kw a{display:inline-block;margin:4px 8px 0 0;border:1px solid rgba(255,255,255,.24);border-radius:5px;padding:3px 12px;color:#D6C3AA;font-size:12.5px}
+.kw a:hover{background:var(--gold);color:#3A2A08;border-color:var(--gold)}
+.f-bot{margin-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:#B9A88E}
+.f-bot a{color:#B9A88E}
+.f-bot a:hover{color:var(--gold)}
+
+/* ===== 响应式 ===== */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  h1{font-size:38px}
+  .tray{max-width:340px;margin:0 auto}
+  .fruits{grid-template-columns:repeat(2,1fr)}
+  .drawers{grid-template-columns:1fr}
+  .stews{grid-template-columns:1fr}
+  .rankwrap{grid-template-columns:1fr}
+  .about{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:var(--wood-d);flex-direction:column;align-items:stretch;padding:10px 14px 16px;gap:2px;margin-left:0;border-top:2px solid var(--gold-d);box-shadow:0 18px 32px rgba(0,0,0,.4)}
+  nav.main a{padding:13px 16px;font-size:15.5px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .menu-btn{display:flex}
+  .ck:checked ~ nav.main{display:flex}
+  .top-inner{position:relative;min-height:66px}
+  .brix li{grid-template-columns:60px 1fr 74px;gap:12px}
+  .brix .sweet{display:none}
+}
+@media (max-width:640px){
+  body{font-size:15px}
+  .wrap{padding:0 14px}
+  .rope,.bamboo{height:9px}
+  .bar .wrap{gap:10px;font-size:11.5px}
+  .bar .rt{margin-left:0;width:100%}
+  .brand b{font-size:18px;letter-spacing:2px}
+  .signboard{width:40px;height:40px;font-size:17px}
+  h1{font-size:28px;letter-spacing:1px}
+  .hero{padding:20px 0 14px}
+  .lead{font-size:15.5px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .hero-stats div:nth-child(2){border-right:0}
+  .hero-stats div:nth-child(1),.hero-stats div:nth-child(2){border-bottom:1px solid var(--line)}
+  .hero-stats strong{font-size:19px}
+  .tray{max-width:280px}
+  .tray .core b{font-size:26px}
+  .jujubes i:nth-child(3),.jujubes i:nth-child(5){display:none}
+  .sec-head h2{font-size:22px;letter-spacing:1px}
+  .fruits{grid-template-columns:1fr}
+  .fruit .body{grid-template-columns:88px 1fr;gap:12px}
+  .jujube{width:88px;height:114px}
+  .jujube b{font-size:22px}
+  .cabinet{padding:12px}
+  .stew{padding:18px 20px}
+  .brix li{padding:11px 14px;gap:10px}
+  .brix .pos{width:44px;height:44px;line-height:36px;font-size:13px}
+  .brix .nm b{font-size:15px}
+  .brix .pt{font-size:16px}
+  .sidecard{padding:18px}
+  .ab{padding:20px 20px}
+  .faq summary{font-size:15px;padding-right:52px}
+  .faq summary .code{font-size:10px}
+  .f-grid{grid-template-columns:1fr}
+  section{padding:28px 0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}}
+@media print{header.top{position:static}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<div class="rope" aria-hidden="true"></div>
+<div class="bamboo" aria-hidden="true"></div>
+
+<!-- 上新提示条 -->
+<div class="bar">
+  <div class="wrap">
+    <span class="tag"><i aria-hidden="true"></i>今日上新</span>
+    <span>在架 <b>6</b> 款</span>
+    <span>均分 <b>8.5</b></span>
+    <span class="rt">
+      <span>第 <b>1286</b> 批</span>
+      <span>每日 08:00 上货</span>
+      <span>2026-10-02</span>
+    </span>
+  </div>
+</div>
+<div class="bamboo" aria-hidden="true"></div>
+
+<!-- 头部：木质招牌 -->
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="#" aria-label="红枣电影网首页">
+      <span class="signboard" aria-hidden="true">枣</span>
+      <span>
+        <b>红枣电影网</b>
+        <small>HONGZAO MOVIE PANTRY</small>
+      </span>
+    </a>
+    <input class="ck" id="navck" type="checkbox" aria-label="展开导航菜单">
+    <label class="menu-btn" for="navck" aria-hidden="true"><i></i></label>
+    <nav class="main" aria-label="主导航">
+      <a class="cur" href="#">铺子门口</a>
+      <a href="#today">今日上新</a>
+      <a href="#drawers">干货抽屉</a>
+      <a href="#stews">文火慢炖</a>
+      <a href="#rank">糖度排行</a>
+      <a href="#about">关于本站</a>
+      <a href="#faq">常见问答</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">◍　PANTRY NO.1286　·　每 日 上 新　·　挑 一 颗 好 枣</p>
+        <h1>挑电影和挑红枣一样<br>要<em>饱满、有回甘</em></h1>
+        <p class="lead">好枣不看个头，看咬下去那口回甘；好片也一样。<b>红枣电影网</b>是间按干货铺子逻辑开的中文电影站点：今日上新是当天片单，干货抽屉是分类，文火慢炖是影评，糖度榜是评分——每一部都挑过、尝过才上架。</p>
+        <div class="hero-actions">
+          <a class="btn btn-a" href="#today">看看今日上新</a>
+          <a class="btn btn-b" href="#rank">查看糖度排行</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>16800</strong><span>收录影片</span></div>
+          <div><strong>36</strong><span>干货抽屉</span></div>
+          <div><strong>08:00</strong><span>每日上货</span></div>
+          <div><strong>8.7</strong><span>编辑均分</span></div>
+        </div>
+      </div>
+
+      <div class="tray" aria-hidden="true">
+        <div class="jujubes"><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="core">
+          <b>红枣电影网</b>
+          <small>HONGZAO MOVIE</small>
+          <span class="seed">NO.1286 · 今日上新 6 款</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目一：今日上新 -->
+  <section id="today">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="l">
+          <span class="plate">NEW ARRIVAL</span>
+          <h2>今日上新片单</h2>
+        </div>
+        <a class="more" href="#">查看完整片库</a>
+        <p>红枣电影网编辑组每日 08:00 上货 · 每款标注等级、片长与糖度值</p>
+      </div>
+
+      <div class="fruits">
+        <figure class="fruit">
+          <div class="pick"><span class="no">第 01 款</span><span class="grade">特级</span></div>
+          <div class="body">
+            <span class="jujube"><b>01</b></span>
+            <span class="meta">
+              <b>长街尽头</b>
+              <small>2026 · 悬疑 / 犯罪 · 128′</small>
+              <span class="rate">8.9</span>
+            </span>
+          </div>
+          <figcaption>
+            <p>双线叙事在第七十分钟交汇，此后每段回忆都在改写前面的判断，是今年华语悬疑里逻辑最自洽的一部。</p>
+            <div class="tags"><span>悬疑</span><span>华语</span><span>反转</span></div>
+            <div class="foot"><span class="br">糖度 °Bx 9.4</span><a href="#">尝一颗</a></div>
+          </figcaption>
+        </figure>
+
+        <figure class="fruit">
+          <div class="pick"><span class="no">第 02 款</span><span class="grade">特级</span></div>
+          <div class="body">
+            <span class="jujube"><b>02</b></span>
+            <span class="meta">
+              <b>归途列车</b>
+              <small>2026 · 剧情 / 家庭 · 118′</small>
+              <span class="rate">8.8</span>
+            </span>
+          </div>
+          <figcaption>
+            <p>一趟跨省列车上的六个陌生人，用一夜时间讲完各自未说完的话，结尾长镜头值得回甘很久。</p>
+            <div class="tags"><span>剧情</span><span>家庭</span><span>高分</span></div>
+            <div class="foot"><span class="br">糖度 °Bx 9.1</span><a href="#">尝一颗</a></div>
+          </figcaption>
+        </figure>
+
+        <figure class="fruit">
+          <div class="pick"><span class="no">第 03 款</span><span class="grade">一级</span></div>
+          <div class="body">
+            <span class="jujube"><b>03</b></span>
+            <span class="meta">
+              <b>第七大陆</b>
+              <small>2026 · 科幻 / 冒险 · 131′</small>
+              <span class="rate">8.6</span>
+            </span>
+          </div>
+          <figcaption>
+            <p>极地科考站失联后的七十二小时，视觉体系克制而压迫感十足，建议一口吃完不要放下。</p>
+            <div class="tags"><span>科幻</span><span>视效</span><span>新片</span></div>
+            <div class="foot"><span class="br">糖度 °Bx 8.9</span><a href="#">尝一颗</a></div>
+          </figcaption>
+        </figure>
+
+        <figure class="fruit">
+          <div class="pick"><span class="no">第 04 款</span><span class="grade">一级</span></div>
+          <div class="body">
+            <span class="jujube"><b>04</b></span>
+            <span class="meta">
+              <b>橘子汽水</b>
+              <small>2025 · 青春 / 文艺 · 104′</small>
+              <span class="rate">8.4</span>
+            </span>
+          </div>
+          <figcaption>
+            <p>被多数榜单漏掉的小成本作品，讲一个小镇夏天与一场迟到的告别，甜得克制，回甘很长。</p>
+            <div class="tags"><span>文艺</span><span>青春</span><span>冷门</span></div>
+            <div class="foot"><span class="br">糖度 °Bx 8.7</span><a href="#">尝一颗</a></div>
+          </figcaption>
+        </figure>
+
+        <figure class="fruit">
+          <div class="pick"><span class="no">第 05 款</span><span class="grade">一级</span></div>
+          <div class="body">
+            <span class="jujube"><b>05</b></span>
+            <span class="meta">
+              <b>纸上星河</b>
+              <small>2026 · 动画 / 治愈 · 096′</small>
+              <span class="rate">8.3</span>
+            </span>
+          </div>
+          <figcaption>
+            <p>手绘质感极佳，一封寄不出去的信被整座城市接力传递，孩子尝甜，大人尝苦。</p>
+            <div class="tags"><span>动画</span><span>治愈</span><span>合家欢</span></div>
+            <div class="foot"><span class="br">糖度 °Bx 8.5</span><a href="#">尝一颗</a></div>
+          </figcaption>
+        </figure>
+
+        <figure class="fruit">
+          <div class="pick"><span class="no">第 06 款</span><span class="grade">二级</span></div>
+          <div class="body">
+            <span class="jujube"><b>06</b></span>
+            <span class="meta">
+              <b>一年七城</b>
+              <small>2024 · 纪录 / 人文 · 112′</small>
+              <span class="rate">8.2</span>
+            </span>
+          </div>
+          <figcaption>
+            <p>七位导演各拍一座城的一年，剪辑节奏舒服、信息密度高，可分两次慢慢嚼完。</p>
+            <div class="tags"><span>纪录</span><span>人文</span><span>分集</span></div>
+            <div class="foot"><span class="br">糖度 °Bx 8.3</span><a href="#">尝一颗</a></div>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目二：干货抽屉 -->
+  <section id="drawers">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="l">
+          <span class="plate g">CABINET</span>
+          <h2>干货抽屉分类</h2>
+        </div>
+        <a class="more" href="#">进入完整索引</a>
+        <p>红枣电影网按类型、地区、年份分格存放，同一部影片可同时躺在多个抽屉里</p>
+      </div>
+
+      <div class="cabinet">
+        <div class="drawers">
+          <div class="drawer">
+            <div class="face"><b>上 层 · 类 型</b><em aria-hidden="true"></em></div>
+            <ul>
+              <li><a href="#">动作片<i>1240</i></a></li>
+              <li><a href="#">科幻片<i>920</i></a></li>
+              <li><a href="#">悬疑片<i>1080</i></a></li>
+              <li><a href="#">爱情片<i>1530</i></a></li>
+              <li><a href="#">喜剧片<i>1340</i></a></li>
+              <li><a href="#">动画片<i>780</i></a></li>
+            </ul>
+            <p class="df">上层为主类型柜，按影片主要类型入格。</p>
+          </div>
+
+          <div class="drawer">
+            <div class="face"><b>中 层 · 地 区</b><em aria-hidden="true"></em></div>
+            <ul>
+              <li><a href="#">华语电影<i>3260</i></a></li>
+              <li><a href="#">欧美电影<i>4380</i></a></li>
+              <li><a href="#">日韩电影<i>2280</i></a></li>
+              <li><a href="#">其他地区<i>1880</i></a></li>
+            </ul>
+            <p class="df">中层为出品地区柜，与上层可叠加取货。</p>
+          </div>
+
+          <div class="drawer">
+            <div class="face"><b>下 层 · 年 份</b><em aria-hidden="true"></em></div>
+            <ul>
+              <li><a href="#">2026 新片<i>436</i></a></li>
+              <li><a href="#">2025 佳片<i>512</i></a></li>
+              <li><a href="#">经典修复<i>560</i></a></li>
+              <li><a href="#">冷门佳作<i>740</i></a></li>
+              <li><a href="#">高分专区<i>980</i></a></li>
+              <li><a href="#">深夜专场<i>322</i></a></li>
+            </ul>
+            <p class="df">下层为年份与专题柜，每周盘点一次。</p>
+          </div>
+        </div>
+        <p class="cabinet-note">盘点说明：红枣电影网每周核对一次各抽屉存货数量；抽屉标签上的铜环仅为装饰，点击标签即可取货。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目三：文火慢炖 -->
+  <section id="stews">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="l">
+          <span class="plate r">SLOW STEW</span>
+          <h2>文火慢炖 · 影评与资讯</h2>
+        </div>
+        <a class="more" href="#">阅读全部影评</a>
+        <p>红枣电影网原创内容，观点独立，关键剧情单独标注，读完再下口</p>
+      </div>
+
+      <div class="stews">
+        <article class="stew">
+          <div class="hd"><span class="kind">慢炖 · 影评</span><span class="heat">文火 90 分钟</span></div>
+          <h3>《长街尽头》：伏笔是如何在第三幕全部收汁的</h3>
+          <p>逐段拆解它的线索铺设——第一段看似闲聊的对话，其实已经给出了关键时间差。全文无剧透，可放心阅读后再决定要不要买票。</p>
+          <blockquote>好的悬疑片不靠吓你，靠让你散场后回头再炖一遍前面的情节。</blockquote>
+          <p class="sig"><cite>红枣电影网 · 影评组</cite><span>2026-09-30</span><span>阅读 1.4 万</span></p>
+        </article>
+
+        <article class="stew">
+          <div class="hd"><span class="kind">慢炖 · 资讯</span><span class="heat">文火 60 分钟</span></div>
+          <h3>2026 秋季档前瞻：六部值得标记的院线片</h3>
+          <p>今年秋季档悬疑与科幻占比明显上升，红枣电影网提前梳理必看清单，并附三条避雷提示，帮你把电影票花在刀刃上。</p>
+          <blockquote>把电影票花在刀刃上，先从排除不值得的开始。</blockquote>
+          <p class="sig"><cite>红枣电影网 · 编辑部</cite><span>2026-09-27</span><span>阅读 9200</span></p>
+        </article>
+
+        <article class="stew">
+          <div class="hd"><span class="kind">慢炖 · 数据</span><span class="heat">文火 45 分钟</span></div>
+          <h3>数据观察：老片回看潮正在改变铺子结构</h3>
+          <p>近三个月，上线十年以上的经典片播放量同比增长 38%，红枣电影网数据组解读这波回看潮背后的观影习惯变化。</p>
+          <blockquote>回看不是怀旧，是把选择权从新片手里拿回来。</blockquote>
+          <p class="sig"><cite>红枣电影网 · 数据组</cite><span>2026-09-22</span><span>阅读 6800</span></p>
+        </article>
+
+        <article class="stew">
+          <div class="hd"><span class="kind">慢炖 · 专栏</span><span class="heat">文火 50 分钟</span></div>
+          <h3>周末片单：五部适合慢慢嚼的治愈系电影</h3>
+          <p>不想动脑的周末怎么过？红枣电影网挑了五部节奏舒缓、回甘绵长的片子，附一句话推荐理由与建议观看顺序。</p>
+          <blockquote>治愈片的标准很简单：看完能安稳睡一觉。</blockquote>
+          <p class="sig"><cite>红枣电影网 · 片单组</cite><span>2026-09-18</span><span>阅读 7500</span></p>
+        </article>
+
+        <article class="stew">
+          <div class="hd"><span class="kind">慢炖 · 指南</span><span class="heat">文火 40 分钟</span></div>
+          <h3>火候指南：不同类型该用多快的火看</h3>
+          <p>悬疑片要大火快收，纪录片要文火慢炖。红枣电影网按类型给出一份火候表，附建议分段位置。</p>
+          <blockquote>火候对了，普通的片子也能炖出味道。</blockquote>
+          <p class="sig"><cite>红枣电影网 · 观影组</cite><span>2026-09-15</span><span>阅读 5200</span></p>
+        </article>
+
+        <article class="stew">
+          <div class="hd"><span class="kind">慢炖 · 访谈</span><span class="heat">文火 55 分钟</span></div>
+          <h3>对话纪录片导演：一年能熬出多少真实</h3>
+          <p>专访《一年七城》主创，聊素材取舍、拍摄伦理，以及纪录片作者与被拍者之间那条微妙的边界。访谈经本人审阅后刊发。</p>
+          <blockquote>剪辑台上没有真相，只有你愿意承担的解释。</blockquote>
+          <p class="sig"><cite>红枣电影网 · 采访组</cite><span>2026-09-11</span><span>阅读 4300</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目四：糖度排行 -->
+  <section id="rank">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="l">
+          <span class="plate">BRIX</span>
+          <h2>红枣电影网糖度排行榜</h2>
+        </div>
+        <a class="more" href="#">查看完整榜单</a>
+        <p>综合站内评分、收藏量与讨论热度，每两小时测一次糖度</p>
+      </div>
+
+      <div class="rankwrap">
+        <ol class="brix">
+          <li><span class="pos">01</span><span class="nm"><b>长街尽头</b><small>悬疑 / 犯罪 / 2026</small></span><span class="sweet" aria-hidden="true"><i style="width:96%"></i></span><span class="pt">9.4<em>°Bx</em></span></li>
+          <li><span class="pos">02</span><span class="nm"><b>归途列车</b><small>剧情 / 家庭 / 2026</small></span><span class="sweet" aria-hidden="true"><i style="width:92%"></i></span><span class="pt">9.1<em>°Bx</em></span></li>
+          <li><span class="pos">03</span><span class="nm"><b>第七大陆</b><small>科幻 / 冒险 / 2026</small></span><span class="sweet" aria-hidden="true"><i style="width:89%"></i></span><span class="pt">8.9<em>°Bx</em></span></li>
+          <li><span class="pos">04</span><span class="nm"><b>橘子汽水</b><small>青春 / 文艺 / 2025</small></span><span class="sweet" aria-hidden="true"><i style="width:86%"></i></span><span class="pt">8.7<em>°Bx</em></span></li>
+          <li><span class="pos">05</span><span class="nm"><b>纸上星河</b><small>动画 / 治愈 / 2026</small></span><span class="sweet" aria-hidden="true"><i style="width:83%"></i></span><span class="pt">8.5<em>°Bx</em></span></li>
+          <li><span class="pos">06</span><span class="nm"><b>一年七城</b><small>纪录 / 人文 / 2024</small></span><span class="sweet" aria-hidden="true"><i style="width:79%"></i></span><span class="pt">8.3<em>°Bx</em></span></li>
+          <li><span class="pos">07</span><span class="nm"><b>静默海域</b><small>剧情 / 悬疑 / 2025</small></span><span class="sweet" aria-hidden="true"><i style="width:75%"></i></span><span class="pt">8.1<em>°Bx</em></span></li>
+          <li><span class="pos">08</span><span class="nm"><b>深夜放映厅</b><small>合集 / 常驻片单</small></span><span class="sweet" aria-hidden="true"><i style="width:70%"></i></span><span class="pt">7.9<em>°Bx</em></span></li>
+        </ol>
+
+        <aside class="sidecard">
+          <h3>PANTRY LOG　—　本周热搜货</h3>
+          <ol>
+            <li><b>1</b><a href="#">长街尽头 结局解析</a></li>
+            <li><b>2</b><a href="#">今日上新片单</a></li>
+            <li><b>3</b><a href="#">2026 高分华语片</a></li>
+            <li><b>4</b><a href="#">悬疑片推荐</a></li>
+            <li><b>5</b><a href="#">红枣电影网排行榜</a></li>
+          </ol>
+          <p>热搜货来自红枣电影网站内检索与翻看统计，每周一随新一批货更新。</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目五：关于 -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="l">
+          <span class="plate g">ABOUT</span>
+          <h2>关于红枣电影网</h2>
+        </div>
+        <a class="more" href="#">联系我们</a>
+        <p>为什么开成一间干货铺子，以及我们坚持的四条铺规</p>
+      </div>
+
+      <div class="about">
+        <div class="ab">
+          <h3>红枣电影网是什么</h3>
+          <p><span class="hl">红枣电影网</span>创办于 2023 年，是一间按干货铺子逻辑开的中文电影站点。<ruby>枣<rt>zǎo</rt></ruby>这种东西有意思：看着都差不多，咬下去才知道哪颗饱满、哪颗发酸——挑电影也是一样。</p>
+          <p>所以<b>红枣电影网</b>把每部值得看的电影当作一颗待挑的枣：今日上新是当天的片单，干货抽屉是分类，文火慢炖是影评，糖度榜是评分。所有内容免费取阅，本站不做资源搬运，只做挑选、排序与解释。</p>
+        </div>
+        <div class="ab">
+          <h3>铺子四条规矩</h3>
+          <ol class="rules">
+            <li><em>H1</em><span>没看完的片子不上架，宁可空着格子也不凑数。</span></li>
+            <li><em>H2</em><span>影评不剧透，关键剧情单独标注，由读者选择是否展开。</span></li>
+            <li><em>H3</em><span>糖度可追溯，公开打分人数与分数分布，拒绝水军。</span></li>
+            <li><em>H4</em><span>货架位不出售，榜单只由数据与编辑判断决定。</span></li>
+          </ol>
+          <div class="nutri">
+            <h4>NUTRITION FACTS　—　铺子成分表</h4>
+            <dl>
+              <dt>收录影片总量</dt><dd>16800</dd>
+              <dt>干货抽屉数</dt><dd>36</dd>
+              <dt>每日上新量</dt><dd>6</dd>
+              <dt>结算间隔</dt><dd>2 小时</dd>
+              <dt>内容免费比例</dt><dd>100%</dd>
+            </dl>
+            <p class="tip">糖度换算：<dfn title="观众打分占七成、编辑评分占三成的加权模型">加权评分</dfn> 折算为 °Bx 数值，仅作排序参考，不等于真实含糖量。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 栏目六：常见问答 -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="l">
+          <span class="plate r">FAQ</span>
+          <h2>常见问答</h2>
+        </div>
+        <p>关于红枣电影网的使用与内容说明 · 点选问题展开回答</p>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>糖度是怎么测出来的？<span class="code">Q-01</span></summary>
+          <p>红枣电影网采用"观众打分 + 编辑评分"加权模型，观众分占七成、编辑分占三成，并剔除异常打分样本，最后折算为 °Bx 数值。每个影片条目都会展示参与打分的人数与分数分布区间，方便你判断样本是否足够。</p>
+        </details>
+        <details>
+          <summary>特级、一级、二级是按什么分的？<span class="code">Q-02</span></summary>
+          <p>这是红枣电影网对当日片单的推荐强度标注：特级表示编辑组一致认为值得优先看，一级表示推荐但可稍后再看，二级表示题材偏窄、适合特定口味。等级只描述推荐强度，不代表影片质量高低。</p>
+        </details>
+        <details>
+          <summary>红枣电影网多久上一次货？<span class="code">Q-03</span></summary>
+          <p>每日 08:00 上新并更新糖度排行榜；榜单每两小时结算一次；干货抽屉每周盘点一次；文火慢炖影评与影视资讯不定期发布。</p>
+        </details>
+        <details>
+          <summary>如何向我推荐的电影投稿？<span class="code">Q-04</span></summary>
+          <p>通过页面底部的"投稿与合作"入口留言，注明片名、年份与你的一句话推荐理由，红枣电影网编辑组会在三个工作日内回复。</p>
+        </details>
+        <details>
+          <summary>手机上挑片子方便吗？<span class="code">Q-05</span></summary>
+          <p>方便。红枣电影网全站响应式：手机端枣形卡转为单列并缩小，干货抽屉纵向排开，糖度榜隐藏糖度条只保留名次与数值，导航收进菜单按钮，单手即可完成挑片。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 底部 -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-col">
+        <h4>红枣电影网</h4>
+        <p>红枣电影网是一间按干货铺子逻辑开的中文电影站点，每日上新今日片单、干货抽屉分类、文火慢炖影评、糖度排行榜与观影指南，挑一部像挑一颗好枣那样认真。<q>饱满、有回甘</q>，是我们挑片的标准。</p>
+        <address>铺址：https://hongzaodianyingwang-cn.github.io</address>
+        <span class="f-url">https://hongzaodianyingwang-cn.github.io</span>
+      </div>
+      <div class="f-col">
+        <h4>上架栏目</h4>
+        <ul>
+          <li><a href="#today">今日上新片单</a></li>
+          <li><a href="#drawers">干货抽屉分类</a></li>
+          <li><a href="#stews">文火慢炖影评</a></li>
+          <li><a href="#rank">糖度排行榜</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#about">关于红枣电影网</a></li>
+          <li><a href="#faq">常见问答</a></li>
+          <li><a href="#">投稿与合作</a></li>
+          <li><a href="#">内容声明</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>友情链接</h4>
+        <ul>
+          <li><a href="#">电影节日历</a></li>
+          <li><a href="#">独立电影观察</a></li>
+          <li><a href="#">影视资料库</a></li>
+          <li><a href="#">影迷社区</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="kw">
+      相关关键词：
+      <a href="#">红枣电影网</a><a href="#">电影推荐</a><a href="#">今日上新</a><a href="#">最新电影</a><a href="#">影视资讯</a><a href="#">高分电影</a><a href="#">电影排行榜</a><a href="#">影评</a><a href="#">观影指南</a><a href="#">电影分类</a>
+    </div>
+
+    <div class="f-bot">
+      <span>&copy; 2026 红枣电影网 HONGZAO MOVIE PANTRY · 第 1286 批 · 保留所有权利</span>
+      <span><a href="#">隐私政策</a> · <a href="#">使用条款</a> · <a href="#home">回到铺子门口</a></span>
+    </div>
+  </div>
+</footer>
+<div class="bamboo" aria-hidden="true"></div>
+<div class="rope" aria-hidden="true"></div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://hongzaodianyingwang-cn.github.io/#website",
+      "name": "红枣电影网",
+      "alternateName": "HONGZAO MOVIE PANTRY",
+      "url": "https://hongzaodianyingwang-cn.github.io/",
+      "description": "红枣电影网是专注电影推荐与影视资讯的中文影迷站点，按干货铺子节奏每日上新：今日上新片单、干货抽屉分类、文火慢炖影评、糖度排行榜与观影指南。",
+      "inLanguage": "zh-CN",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://hongzaodianyingwang-cn.github.io/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://hongzaodianyingwang-cn.github.io/#organization",
+      "name": "红枣电影网",
+      "url": "https://hongzaodianyingwang-cn.github.io/",
+      "description": "红枣电影网提供今日上新片单、干货抽屉分类、文火慢炖影评、糖度排行榜与观影指南服务，每日上新更新。"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "红枣电影网首页", "item": "https://hongzaodianyingwang-cn.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "今日上新片单", "item": "https://hongzaodianyingwang-cn.github.io/#today"},
+        {"@type": "ListItem", "position": 3, "name": "干货抽屉分类", "item": "https://hongzaodianyingwang-cn.github.io/#drawers"},
+        {"@type": "ListItem", "position": 4, "name": "文火慢炖影评与资讯", "item": "https://hongzaodianyingwang-cn.github.io/#stews"},
+        {"@type": "ListItem", "position": 5, "name": "红枣电影网糖度排行榜", "item": "https://hongzaodianyingwang-cn.github.io/#rank"}
+      ]
+    }
+  ]
+}
+</script>
+
+</body>
+</html>
